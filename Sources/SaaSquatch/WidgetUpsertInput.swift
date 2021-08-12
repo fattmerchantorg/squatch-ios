@@ -7,7 +7,7 @@ public struct WidgetUpsertInput {
     public let userInput: JSON
     public let accountId: String
     public let userId: String
-    public let userJwt: String
+    public let userJwt: String?
     public let widgetType: WidgetType?
     public let engagementMedium: String?
     
@@ -137,7 +137,9 @@ public struct WidgetUpsertInput {
             }
             
             guard let userJwt = userJwt else {
+              if (userInput == nil || userId == nil || accountId == nil) {
                 throw BuilderError.incompleteBuilder(builder: "WidgetUpsertInput", reason: "must call setUserJwt or setUserInputWithUserJwt")
+              }
             }
             
             return WidgetUpsertInput(userInput: userInput, accountId: accountId, userId: userId, userJwt: userJwt, widgetType: widgetType, engagementMedium: engagementMedium)
