@@ -7,7 +7,7 @@ public struct WidgetUpsertInput {
     public let userInput: JSON
     public let accountId: String
     public let userId: String
-    public let userJwt: String
+    public let userJwt: String?
     public let widgetType: WidgetType?
     public let engagementMedium: String?
     
@@ -136,7 +136,7 @@ public struct WidgetUpsertInput {
                 throw BuilderError.incompleteBuilder(builder: "WidgetUpsertInput", reason: "must call setUserInput or setUserInputWithUserJwt")
             }
 
-          let userJwt = userJwt ?? ""
+            let userJwt = userJwt ?? ""
             
             return WidgetUpsertInput(userInput: userInput, accountId: accountId, userId: userId, userJwt: userJwt, widgetType: widgetType, engagementMedium: engagementMedium)
         }
