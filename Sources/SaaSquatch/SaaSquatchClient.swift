@@ -164,7 +164,7 @@ public final class SaaSquatchClient {
      - Throws: `SaaSquatchClientError`if there is a failure making the request.
     */
     public func widgetUpsert(_ input: WidgetUpsertInput, completion: @escaping ResultHandler<JSON>) throws {
-      try userUpsertInternal(accountId: input.accountId, userId: input.userId, body: input.userInput, userJwt: input.userJwt , widgetType: input.widgetType, engagementMedium: input.engagementMedium, isWidgetRequest: true, completion: completion)
+      try userUpsertInternal(accountId: input.accountId, userId: input.userId, body: input.userInput, userJwt: input.userJwt ?? "" , widgetType: input.widgetType, engagementMedium: input.engagementMedium, isWidgetRequest: true, completion: completion)
     }
     
     private func userUpsertInternal(accountId: String, userId: String, body: JSON, userJwt: String, widgetType: WidgetType?, engagementMedium: String?, isWidgetRequest: Bool, completion: @escaping ResultHandler<JSON>) throws {
