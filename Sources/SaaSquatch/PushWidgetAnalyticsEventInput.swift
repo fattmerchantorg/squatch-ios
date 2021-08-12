@@ -22,9 +22,6 @@ public struct PushWidgetAnalyticsEventInput {
         
         @discardableResult
         public func setUserJwt(_ userJwt: String) throws -> Builder {
-            if userJwt.isBlank {
-                throw BuilderError.invalidParameter(param: "userJwt", reason: "cannot be blank")
-            }
             self.userJwt = userJwt
             return self
         }

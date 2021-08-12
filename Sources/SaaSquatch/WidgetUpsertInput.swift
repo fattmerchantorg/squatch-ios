@@ -135,10 +135,8 @@ public struct WidgetUpsertInput {
                   let accountId = accountId else {
                 throw BuilderError.incompleteBuilder(builder: "WidgetUpsertInput", reason: "must call setUserInput or setUserInputWithUserJwt")
             }
-            
-            guard let userJwt = userJwt else {
-                throw BuilderError.incompleteBuilder(builder: "WidgetUpsertInput", reason: "must call setUserJwt or setUserInputWithUserJwt")
-            }
+
+          let userJwt = userJwt ?? ""
             
             return WidgetUpsertInput(userInput: userInput, accountId: accountId, userId: userId, userJwt: userJwt, widgetType: widgetType, engagementMedium: engagementMedium)
         }

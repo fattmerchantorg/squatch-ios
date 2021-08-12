@@ -70,7 +70,7 @@ public class SaaSquatchWebView: WKWebView, WKUIDelegate {
                     
                     try? self.recordWidgetLoadedAnalytic(
                         user: UserIdInput(accountId: input.accountId, userId: input.userId),
-                        userJwt: input.userJwt,
+                      userJwt: input.userJwt ,
                         programId: programId
                     )
                     
